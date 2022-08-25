@@ -41,6 +41,18 @@ export async function getStaticProps() {
     })
   }  
 
+  if (!transformedEvents) {
+    return {
+      redirect: {
+        destination: "/no-data"
+      }
+    }
+  }
+
+  if (transformedEvents.length === 0) {
+    return { notFound: true };
+  }
+
   return {
     props: {
       events: transformedEvents
