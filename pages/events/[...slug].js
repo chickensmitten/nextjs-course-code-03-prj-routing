@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from "next/head"
 
 
 import EventList from '../../components/events/event-list';
@@ -53,6 +54,13 @@ function FilteredEventsPage(props) {
   ) {
     return (
       <Fragment>
+        <Head>
+          <title>Filtered Events</title>
+          <meta 
+            meta="description" 
+            content={`All events for ${numMonth}/${numYear}.`}
+            />        
+        </Head>          
         <ErrorAlert>
           <p>Invalid filter. Please adjust your values!</p>
         </ErrorAlert>
